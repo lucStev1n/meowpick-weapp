@@ -34,7 +34,6 @@
 <script setup lang="ts">
 import { useCourse } from "./index";
 import CommentList from "@/pages/course/index/CommentList.vue";
-
 let course_id = "";
 const { fetch, id, course, teachers, trends } = useCourse();
 onLoad((options: any) => {
@@ -42,6 +41,7 @@ onLoad((options: any) => {
 });
 onShow(() => {
   fetch(course_id);
+  console.log(course);
 });
 
 function handleBottom() {

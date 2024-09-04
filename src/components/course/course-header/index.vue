@@ -30,7 +30,7 @@
       </view>
       <text class="content">{{ getCampus(data.campuses) }}</text>
     </view>
-    <view class="link">
+    <view class="link" v-if="!(data.link === null)">
       <view class="title">
         <image src="@/images/link-icon.png" class="icon" />
         <text class="tip">相关课程</text>
@@ -47,13 +47,11 @@
 </template>
 <script setup lang="ts">
 import type { CourseVO, TeacherVO } from "@/api/data-contracts";
-
 type Props = {
   data: CourseVO;
   teachers: TeacherVO[];
 };
 const props = defineProps<Props>();
-
 const jump = (id: string) => {
   uni.navigateTo({
     url: `/pages/course/index/index?id=${id}`
